@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/maxwellgithinji/Twitter-Lite-Frontend/tree/develop.svg?style=svg)](https://circleci.com/gh/maxwellgithinji/Twitter-Lite-Frontend/tree/develop)  <a href="https://codeclimate.com/github/maxwellgithinji/Twitter-Lite-Frontend/maintainability"><img src="https://api.codeclimate.com/v1/badges/29eac6872d9223713505/maintainability" /></a> <a href="https://codeclimate.com/github/maxwellgithinji/Twitter-Lite-Frontend/test_coverage"><img src="https://api.codeclimate.com/v1/badges/29eac6872d9223713505/test_coverage" /></a>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

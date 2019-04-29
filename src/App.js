@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import '../src/assets/styles/App.css';
 import Index from './components/Home.jsx';
-import Login from './components/Login.jsx';
+import Login from './containers/Authentication';
 
 class App extends Component {
   render() {

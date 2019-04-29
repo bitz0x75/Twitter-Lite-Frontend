@@ -5,6 +5,10 @@ import '../../node_modules/jquery/dist/jquery.min.js';
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
  const Navbar = () => {
+  const clearLocalStorage = () => {
+    localStorage.removeItem('user')
+   }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light">
           <a className="navbar-brand nav-link" href="/">Twitter-Lite</a>
@@ -14,9 +18,12 @@ import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
           <div className="collapse navbar-collapse" id="navbar">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/home" className="nav-link">Home</Link>
               </li>
             </ul>
+            <li className="nav-item">
+                <Link to="/home" className="nav-link logout" onClick={clearLocalStorage}>Logout</Link>
+              </li>
           </div>
         </nav>
     )

@@ -6,7 +6,7 @@ const SubmitButton = (props) => {
         <div className="container-login100-form-btn">
         <div className="wrap-login100-form-btn">
             <div className="login100-form-bgbtn"></div>
-            <button className="login100-form-btn">
+            <button className="login100-form-btn" onClick={props.onClick}>
                 { props.button_label }
             </button>
         </div>

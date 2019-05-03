@@ -28,12 +28,13 @@ export const tweet = (data, history) => dispatch => {
     }
     return axios
         .post(
-            url, 
-            data, 
+            url,
+            data,
             {headers: headers},
           )
         .then(response => {
-            console.log('hfhghgcvbxgcbcvv', response)
+            // console.log('hfhghgcvbxgcbcvv', response)
+            console.log(response);
             if (response.status === 201){
                 dispatch(tweetSuccess(response.data))
             }

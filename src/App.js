@@ -1,27 +1,17 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
-import Index from './components/Home';
-import Login from './components/Login';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import '../src/assets/styles/App.css';
+import Index from './components/Home.jsx';
+import Login from './components/Login.jsx';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login/">Login</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <Route exact path="/" component={Index} />
-          <Route path="/login/" component={Login} />
+          <Route exact path="/" component={Login} />
+          <Route path="/home/" component={Index} />
+          <Route path="/signup" component={Login} />
         </div>
       </Router>
     );

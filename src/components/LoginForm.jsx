@@ -5,11 +5,12 @@ import PasswordField from '../components/InputFields/password';
 import SubmitButton from '../components/SubmitButton';
 import { Link } from 'react-router-dom';
 
- const LoginForm = (props) => {
+const LoginForm = (props) => {
     return (
 		<div className="form-div">
         <EmailField />
-        <PasswordField label="Password"/>
+        <PasswordField label="Password" name="password"/>
+        <p className="error-message">{props.error}</p>
         <SubmitButton button_label="Login"/>
         <p className="signup-text">No account? <Link to="/signup">Signup</Link></p>
 		</div>

@@ -204,6 +204,19 @@ height: 100%;
   text-align: center;
 }
 
+.error-message{
+  float: left;
+  color: red;
+  font-size: 10px;
+  margin-top: -32px;
+}
+
+.chars-error-message{
+  color: red;
+  font-size: 10px;
+  margin-top: -30px;
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

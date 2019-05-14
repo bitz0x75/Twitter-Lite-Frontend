@@ -159,6 +159,11 @@ height: 100%;
 
 .tag-button{
   border-color: #000;
+  padding-right: 50px;
+}
+.tag-link{
+  color: #1A73E8;
+  cursor: pointer;
 }
 
 .avatar {

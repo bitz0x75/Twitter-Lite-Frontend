@@ -21,6 +21,11 @@ export const FETCH_TWEET_ATTEMPT = 'FETCH_TWEET_ATTEMPT';
 export const FETCH_TWEET_FAILED = 'FETCH_TWEET_FAILED';
 export const FETCH_TWEET_SUCCESS = 'FETCH_TWEET_SUCCESS';
 
+// Fetch hash_tag constants
+export const FETCH_HASHTAG_ATTEMPT = 'FETCH_HASHTAG_ATTEMPT';
+export const FETCH_HASHTAG_FAILED = 'FETCH_HASHTAG_FAILED';
+export const FETCH_HASHTAG_SUCCESS = 'FETCH_HASHTAG_SUCCESS';
+
 export const initialState = {
     attempt: false,
     data: [],

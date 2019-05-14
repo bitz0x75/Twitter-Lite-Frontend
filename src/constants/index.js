@@ -16,6 +16,11 @@ export const TWEET_ATTEMPT = 'TWEET_ATTEMPT';
 export const TWEET_FAILED = 'TWEET_FAILED';
 export const TWEET_SUCCESS = 'TWEET_SUCCESS';
 
+// fetch tweet constants
+export const FETCH_TWEET_ATTEMPT = 'FETCH_TWEET_ATTEMPT';
+export const FETCH_TWEET_FAILED = 'FETCH_TWEET_FAILED';
+export const FETCH_TWEET_SUCCESS = 'FETCH_TWEET_SUCCESS';
+
 export const initialState = {
     attempt: false,
     data: [],

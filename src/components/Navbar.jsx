@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import '../assets/styles/navbar.scss';
-import '../../node_modules/jquery/dist/jquery.min.js';
-import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import 'jquery/dist/jquery.min';
+import 'bootstrap/dist/js/bootstrap.min';
 
  const Navbar = () => {
   const clearLocalStorage = () => {

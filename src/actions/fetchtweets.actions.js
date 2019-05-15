@@ -20,13 +20,13 @@ export const fetchTweets = (tag) => dispatch => {
     const url = `https://andela-twitter.herokuapp.com/tweet${tag ? '/'+tag : 's'}`;
     const token = localStorage.getItem('user')
     var headers = {
-        'Authorization': `Bearer ${token}`,
-        'Access-Control-Allow-Origin': '*'
+        'Authorization': `Bearer ${token}`
     }
     return axios
         .get(
             url,
             {headers},
+            {'Access-Control-Allow-Origin': true}
           )
         .then(response => {
             if (response.status === 200){

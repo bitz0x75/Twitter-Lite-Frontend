@@ -17,12 +17,11 @@ export const loginSuccess = (data) => ({
 
 export const login = (data, history) => dispatch => {
     dispatch(loginRequest())
-    const url = "http://localhost:3000/auth/login/";
+    const url = "https://andela-twitter.herokuapp.com/auth/login/";
     return axios
         .post(
             url, 
             data, 
-            {'Access-Control-Allow-Origin': true}
           )
         .then(response => {
             if (response.status === 200){

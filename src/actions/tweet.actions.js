@@ -17,7 +17,7 @@ export const tweetSuccess = (data) => ({
 
 export const tweet = (data, history) => dispatch => {
     dispatch(tweetRequest())
-    const url = "http://localhost:3000/tweets";
+    const url = "https://andela-twitter.herokuapp.com/tweets";
     const token = localStorage.getItem('user')
     var headers = {
         'Content-Type': 'application/json',

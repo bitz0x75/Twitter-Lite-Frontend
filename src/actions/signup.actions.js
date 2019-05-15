@@ -17,12 +17,11 @@ export const signupSuccess = (data) => ({
 
 export const signup = (data, history) => dispatch => {
     dispatch(signupRequest())
-    const url = "http://localhost:3000/signup/";
+    const url = "https://andela-twitter.herokuapp.com/signup/";
     return axios
         .post(
             url, 
             data, 
-            {'Access-Control-Allow-Origin': true}
           )
         .then(response => {
             if (response.status === 201){

@@ -17,7 +17,7 @@ export const fetchTweetSuccess = (payload) => ({
 
 export const fetchTweets = (tag) => dispatch => {
     dispatch(fetchTweetRequest())
-    const url = `http://localhost:3000/tweet${tag ? '/'+tag : 's'}`;
+    const url = `https://andela-twitter.herokuapp.com/tweet${tag ? '/'+tag : 's'}`;
     const token = localStorage.getItem('user')
     var headers = {
         'Authorization': `Bearer ${token}`,

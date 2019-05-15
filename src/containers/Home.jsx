@@ -5,14 +5,16 @@ import tweetActions from "../actions/tweet.actions";
 import { fetchTweets } from "../actions/fetchtweets.actions";
 import { connect } from "react-redux";
 
+import uuid from 'uuid'
+
 class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tweets: [],
       value: 280,
       disabled: false,
-      text_value: ""
+      text_value: "",
+      hashTag: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -38,24 +40,65 @@ class Index extends Component {
 
   handleSubmit = e => {
     const { tweet, history } = this.props;
+    const {text_value} = this.state;
     if (!e.target.checkValidity()) {
       e.preventDefault();
       e.stopPropagation();
     }
     e.preventDefault();
-    const data = { body: this.state.text_value };
+    const data = { body: text_value };
     tweet(data, history);
   };
+
+  hashtag_to_link  = body => {
+    var myRegexp = /(#\w+)/g
+    var newStr = body.replace(myRegexp, `<span class="tag-link"${onclick = this.handleHashtagClick} data-hashKey=$1>$1</span>`);
+    return {__html: newStr}
+  }
+
+  handleHashtagClick  = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    let targetValue = e.target.getAttribute('data-hashKey');
+    if (!targetValue) {
+      return;
+    }
+    targetValue = targetValue.substring(1);
+    const { fetchTweets } = this.props;
+    fetchTweets(targetValue);
+    this.setState({hashTag: targetValue});
+  }
+
+  clearFilters = (e) => {
+    const {fetchTweets} = this.props;
+    this.setState({hashTag: null}, () => {
+      fetchTweets();
+    });
+  }
+
+  renderClearFilters() {
+    const spanStyle  = {
+      cursor: 'pointer',
+      margin: '-22px',
+      color: '#9E1919',
+      fontSize: "20px"
+
+    }
+    return (
+      <span onClick={this.clearFilters} className="closebox" style={spanStyle}>X</span>
+    );
+  }
 
   render() {
     const {
       tweets: { data, loading }
     } = this.props;
+    const {hashTag} = this.state;
     return (
       <div>
         <Navbar />
         <div className="body">
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <div className="form-group">
               <textarea
                 rows="6"
@@ -71,6 +114,7 @@ class Index extends Component {
               type="submit"
               className="btn btn-primary tweet-btn"
               disabled={this.state.disabled}
+              onClick={this.handleSubmit}
             >
               Tweet
             </button>
@@ -79,22 +123,27 @@ class Index extends Component {
           {}
         <div className="tweets-container">
           <p className="filter-by ml-0">Filter-by</p>
-          <button type="submit" className="btn btn-default tag-button">
-            #Learntech
-          </button>
+          {hashTag ?
+          <div>
+            <button type="submit" className="btn btn-default tag-button">
+            #{hashTag}
+            </button>
+            {this.renderClearFilters()}
+          </div>:
+           ''}
           {loading ? (
             <div>Loading...</div>
           ) : (
             data.map(tweet => {
               return (
-                <div className="tweets" key={tweet.id}>
+                <div className="tweets" key={uuid(tweet.created_by)}>
                   <img src={Avatar} alt="Avatar" className="avatar" />
                   <span className="tweet-body">
                     <span className="tweet-time">
                       {tweet.created_at.toString()}
                     </span>
                     <h6 className="tweet-user">{tweet.curr_user}</h6>
-                    <p className="main-tweet">{tweet.body}</p>
+                    <p className="main-tweet" dangerouslySetInnerHTML = {this.hashtag_to_link(tweet.body)}></p>
                   </span>
                 </div>
               );
@@ -121,5 +170,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchTweets, tweet:  tweetActions.tweet }
+  { fetchTweets,tweet:  tweetActions.tweet }
 )(Index);

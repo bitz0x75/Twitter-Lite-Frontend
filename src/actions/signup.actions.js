@@ -26,7 +26,7 @@ export const signup = (data, history) => dispatch => {
           )
         .then(response => {
             if (response.status === 201){
-                const { token } = response.data['auth_token']
+                const token = response.data['auth_token']
                 localStorage.setItem('user', token)
                 dispatch(signupSuccess(response.data))
                 history.push('/home')

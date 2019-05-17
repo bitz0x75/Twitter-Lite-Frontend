@@ -21,14 +21,14 @@ export const tweet = (data, history) => dispatch => {
     const token = localStorage.getItem('user')
     var headers = {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        'Access-Control-Allow-Origin': '*'
+        'Authorization': `Bearer ${token}`
     }
     return axios
         .post(
             url, 
             data, 
             {headers: headers},
+            {'Access-Control-Allow-Origin': true}
           )
         .then(response => {
             if (response.status === 201){

@@ -22,6 +22,7 @@ export const login = (data, history) => dispatch => {
         .post(
             url, 
             data, 
+            {'Access-Control-Allow-Origin': true}
           )
         .then(response => {
             if (response.status === 200){

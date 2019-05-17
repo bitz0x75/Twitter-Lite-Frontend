@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
         <EmailField />
         <PasswordField label="Password" name="password"/>
         <PasswordField label="Confirm Password" name="confirm password"/>
-        <p className="error-message">{props.passError}</p>
+        <p className="error-message">{props.passError} { "\n"} {props.error}</p>
         <SubmitButton button_label="Create an Account"/>
         <p className="signup-text">Already have an account? <Link to="/">Login</Link></p>
       </div>
